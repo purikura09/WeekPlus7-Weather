@@ -10,6 +10,10 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Weather PlusWeek 7</title>
     <style>
+        a {
+            text-decoration: none;
+        }
+
         .container {
             width: 960px;
             padding: 70px;
@@ -70,6 +74,12 @@
         #temp-2 {
             opacity: 0.5;
         }
+
+        .weather-temperature .active-link {
+            color: #000;
+            cursor: default;
+
+        }
     </style>
 
 </head>
@@ -95,11 +105,18 @@
             </div>
 
             <div class="main col-2">
-                <h2>30</h2>
+                <h2 id="mainTemperature">30</h2>
 
             </div>
-            <div class="col-2">
-                °C | F
+            <div class="weather-temperature col-2">
+
+                °
+                <span class="units">
+                    <a href="" id="degree" class="active-link">C</a> |
+                    <a href="" id="farenheit">F</a>
+                </span>
+
+                <br>
                 <img src="" alt="Clear" id=main-icon />
             </div>
         </div>

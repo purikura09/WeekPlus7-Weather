@@ -36,6 +36,9 @@ function displayTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
   );
+
+  degreeTemperature = response.data.main.temp;
+
   mainTemp.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
@@ -57,7 +60,31 @@ function handleSubmit(event) {
   //console.log(cityInput.value);
 }
 
+let degreeTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("Paris");
+
+function showFarenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#mainTemperature");
+  degreeLink.classList.remove("active-link");
+  farenheitLink.classList.add("active-link");
+  let farenheitTemp = (degreeTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(farenheitTemp);
+}
+function showDegreeTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#mainTemperature");
+  degreeLink.classList.add("active-link");
+  farenheitLink.classList.remove("active-link");
+  temperatureElement.innerHTML = Math.round(degreeTemperature);
+}
+
+let farenheitLink = document.querySelector("#farenheit");
+farenheitLink.addEventListener("click", showFarenheitTemp);
+
+let degreeLink = document.querySelector("#degree");
+degreeLink.addEventListener("click", showDegreeTemp);
