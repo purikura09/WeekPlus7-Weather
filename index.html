@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Weather PlusWeek 7</title>
+    <style>
+        .container {
+            width: 960px;
+            padding: 70px;
+            margin-top: 100px;
+            border-radius: 30px;
+            -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+            box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 60px;
+        }
+
+        h2 {
+            font-size: 90px;
+        }
+
+        h3 {
+            font-size: 30px;
+        }
+
+        form {
+            text-align: center;
+
+        }
+
+        #input-search {
+            width: 70%;
+            height: 45px;
+            margin: 2px;
+        }
+
+        #search-button {
+            width: 20%;
+            height: 45px;
+            margin: 2px;
+            background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .main {}
+
+        #row-2 {}
+
+        #next-days {
+            text-align: center;
+            padding: 5px;
+            margin: 12px;
+        }
+
+        #temp-2 {
+            opacity: 0.5;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <form>
+            <input id="input-search" type="text" placeholder="Search City">
+            <input id="search-button" type="submit" value="SEARCH">
+        </form>
+        </br>
+        <hr>
+        </br>
+        <div class="row">
+
+            <div class="main col-8">
+                <h1>Zurich</h1>
+                <p>Day & Hour</p>
+                <p>Humidity: %, Wind: km/h</p>
+            </div>
+
+            <div class="main col-4">
+                <h2> 30°C</h2>
+
+            </div>
+        </div>
+        </br></br>
+        <div id="row-2" class="row">
+            <div id="next-days" class="col-2">
+                <h3>Day</h3>
+                <div id="icon">
+                    icon
+                </div>
+                </br></br>
+                <b>Temp1 | Temp2</b>
+            </div>
+            <div id="next-days" class="col-2 ">
+                <h3>Day</h3>
+                <div id="icon">
+                    icon
+                </div>
+                </br></br>
+                <b>
+                    <span id=“temp-1“> Temp1 |</span>
+                    <span id="temp-2"> Temp2</span></b>
+            </div>
+            <div id="next-days" class="col-2 ">
+                <h3>Day</h3>
+                <div id="icon">
+                    icon
+                </div>
+                </br></br>
+                <b>
+                    <span id=“temp-1“> Temp1 |</span>
+                    <span id="temp-2"> Temp2</span></b>
+            </div>
+            <div id="next-days" class="col-2 ">
+                <h3>Day</h3>
+                <div id="icon">
+                    icon
+                </div>
+                </br></br>
+                <b>
+                    <span id=“temp-1“> Temp1 |</span>
+                    <span id="temp-2"> Temp2</span></b>
+            </div>
+            <div id="next-days" class="col-2">
+                <h3>Day</h3>
+                <div id="icon">
+                    icon
+                </div>
+                </br></br>
+                <b>
+                    <span id=“temp-1“> Temp1 |</span>
+                    <span id="temp-2"> Temp2</span></b>
+            </div>
+
+        </div>
+        </br>
+        <hr>
+        </br></br>
+        <p class="text-center">This project was coded by RBK and is open-sourced on GitHub and hosted on Netlify
+        </p>
+    </div>
+
+    </div>
+    <script src="src/script.js"></script>
+</body>
+
+</html>
