@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Weather PlusWeek 7</title>
     <style>
         .container {
@@ -52,6 +53,10 @@
             color: #fff;
         }
 
+        #description {
+            text-transform: capitalize;
+        }
+
         .main {}
 
         #row-2 {}
@@ -82,14 +87,18 @@
         <div class="row">
 
             <div class="main col-8">
-                <h1>Zurich</h1>
-                <p>Day & Hour</p>
+                <h1 id="city">Zurich</h1>
+                <div class="date">Time & date</div>
+                <div id="description"> Description</div>
                 <p>Humidity: %, Wind: km/h</p>
             </div>
 
-            <div class="main col-4">
-                <h2> 30°C</h2>
+            <div class="main col-2">
+                <h2>30</h2>
 
+            </div>
+            <div class="col-2">
+                °C | F
             </div>
         </div>
         </br></br>
