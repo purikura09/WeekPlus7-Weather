@@ -22,6 +22,57 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  //console.log(response.data.daily);
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `  <div id="forecast" class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `  
+ <div id="weather-forecast-date" class="col-2">
+                <h3>${formatDay(forecastDay.dt)}</h3>
+    <center>
+                    <img id="icon" src="http://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }.png">
+
+                </br></br>
+
+                <div class="weather-forecast-temperatures"> 
+
+                    <span id=“weather-forecast-temperature-max“> <b>${Math.round(
+                      forecastDay.temp.max
+                    )}°</b> |</span>
+                    <span id="weather-forecast-temperature-min"> ${Math.round(
+                      forecastDay.temp.min
+                    )}°</span>
+
+                </div></center>
+            </div>`;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  let apiKey = "ee1b96c1f77d3aae1b3b86327285b0f8";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  //console.log(apiURL);
+  axios.get(apiURL).then(displayForecast);
+}
 
 function displayTemperature(response) {
   //console.log(response.data);
@@ -36,6 +87,7 @@ function displayTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
   );
+  getForecast(response.data.coord);
 
   degreeTemperature = response.data.main.temp;
 
